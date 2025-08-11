@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Gift, Headphones, MapPin, ShieldCheck, Smile, Truck } from "lucide-react";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 
 const popularGifts = [
     {
@@ -158,9 +158,9 @@ function Home() {
     };
     return (
         <>
-            <div className="container bg-pink-50 min-h-screen">
+            <div className="container-fluid bg-pink-50">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-12">
                         <div
                             className="relative h-screen bg-cover bg-center flex items-center justify-center"
                             style={{
@@ -195,7 +195,7 @@ function Home() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col">
+                    <div className="col-12">
                         <div className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-16">
                             <motion.div
                                 initial={{ opacity: 0, x: -50 }}
