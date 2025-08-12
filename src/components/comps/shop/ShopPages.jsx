@@ -59,7 +59,7 @@ function ShopPage({ product }) {
                 <div className="row">
                     <div className="max-w-6xl mx-auto px-4 py-6 pt-20">
                         <h2 className="text-4xl font-bold text-center text-pink-700 mb-12">
-                            <span className="border-b-3 pb-1 mb-1">Your Celebration, Our Creation</span>
+                            <span className="border-b-3 pb-1 mb-1">Purchase Product Here</span>
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-white rounded-2xl shadow-lg p-5 hover:shadow-xl transition duration-300">
@@ -87,7 +87,7 @@ function ShopPage({ product }) {
                                 </select>
                             </div>
                             <div className="bg-white rounded-2xl shadow-lg p-5 hover:shadow-xl transition duration-300">
-                                <h3 className="text-xl font-semibold">Order Summary</h3>
+                                <h3 className="text-xl font-semibold">Product Details</h3>
                                 <hr className="my-3" />
                                 <p className="my-6 text-gray-700 text-2x2 font-bold">{state.about}</p>
                                 <p className="text-gray-700">Product: {state.title}</p>
