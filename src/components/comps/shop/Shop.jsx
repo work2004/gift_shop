@@ -71,7 +71,16 @@ export default function Shop() {
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 className="w-full px-4 py-3 border border-pink-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 transition"
                                 whileFocus={{ scale: 1.03, boxShadow: "0 0 8px rgba(219, 39, 119, 0.7)" }}
+                                name="search"
+                                list="search"
                             />
+                            <datalist id="search">
+                                <option value="Perfume" />
+                                <option value="Teddy" />
+                                <option value="Chocolate" />
+                                <option value="Flowesr" />
+                                <option value="Kitchen" />
+                            </datalist>
                         </div>
                     </div>
                 </div>

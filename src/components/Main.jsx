@@ -5,6 +5,9 @@ import Home from "./comps/home/Home";
 import Shop from "./comps/shop/Shop";
 import ShopPage from "./comps/shop/ShopPage";
 import ShopPages from "./comps/shop/ShopPages";
+import Gallery from "./comps/gallary/Gallary";
+import Blog from "./comps/blog/Blog";
+import Footer from "./footer/Footer";
 // import Test from "./Test";
 
 function Main(){
@@ -19,7 +22,10 @@ function Main(){
                 <Route path="shop" element={<Shop/>}/>
                 <Route path="shop/buy-product" element={<ShopPage/>}/>
                 <Route path="shop/buy-products" element={<ShopPages/>}/>
+                <Route path="gallary" element={<Gallery/>}/>
+                <Route path="blog" element={<Blog/>}/>
             </Routes>
+            <Footer/>
         </>
     )
 }

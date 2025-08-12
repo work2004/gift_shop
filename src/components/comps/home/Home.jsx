@@ -4,8 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Gift, Headphones, MapPin, ShieldCheck, Smile, Truck } from "lucide-react";
-import Footer from "../../footer/Footer";
 import Slide from "./Slide";
+import { useNavigate } from "react-router-dom";
 
 const popularGifts = [
     {
@@ -157,6 +157,7 @@ function Home() {
         e.preventDefault();
         setSubmitted(true);
     };
+    const navigate = useNavigate();
     return (
         <>
             <div className="container-fluid bg-pink-50 w-full">
@@ -188,6 +189,7 @@ function Home() {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="mt-10 bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 rounded-full font-semibold shadow-lg transition duration-300"
+                                    onClick={()=>navigate('shop')}
                                 >
                                     Shop Now
                                 </motion.button>
@@ -211,7 +213,7 @@ function Home() {
                                     Explore our collection of thoughtful gifts to make every moment
                                     special.
                                 </p>
-                                <button className="mt-6 bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition duration-300">
+                                <button onClick={()=>navigate('shop')} className="mt-6 bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition duration-300">
                                     Shop Now
                                 </button>
                             </motion.div>
@@ -415,9 +417,6 @@ function Home() {
                             )}
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <Footer />
                 </div>
             </div>
         </>
