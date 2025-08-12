@@ -53,87 +53,91 @@ export default function Shop() {
     //     );
     // };
 
-
     return (
         <>
-            <div className="max-w-7xl mx-auto p-6">
-                <h2 className="text-3xl font-bold text-pink-700 mb-6 text-center">
-                    Purchase Your Favorite Gifts
-                </h2>
-
-                {/* Search product box input */}
-                <div className="mb-8 max-w-md mx-auto">
-                    <motion.input
-                        type="text"
-                        placeholder="Search gifts..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full px-4 py-3 border border-pink-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 transition"
-                        whileFocus={{ scale: 1.03, boxShadow: "0 0 8px rgba(219, 39, 119, 0.7)" }}
-                    />
+            <div className="container max-w-7xl mx-auto p-6 my-10 md:my-13">
+                <div className="row">
+                    <h2 className="text-3xl font-bold text-pink-700 mb-6 text-center">
+                        <span className="border-b-3 pb-1 mb-1">Purchase Your Favorite Gifts</span>
+                    </h2>
                 </div>
-                {/* shop card box */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    <AnimatePresence>
-                        {
-                            filteredGifts.length === 0 ? (
-                                <motion.p
-                                    className="text-center text-gray-500 col-span-full"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                >
-                                    No Data Found or Any Gift
-                                </motion.p>
-                            ) : (
-                                filteredGifts.map((shopItem, shopIndex) => {
-                                    const isSelected = selectedGifts.includes(shopItem.id);
-                                    return (
-                                        <motion.div
-                                            key={shopIndex}
-                                            layout
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0, scale: 0.8 }}
-                                            transition={{ duration: 0.3 }}
-                                            className={`border rounded-lg shadow-lg p-4 cursor-pointer transition transform hover:scale-105 ${isSelected ? "border-pink-600 bg-pink-50" : "border-gray-300 bg-white"
-                                                }`}
-
-                                        >
-                                            <img
-                                                src={shopItem.image_link}
-                                                alt={shopItem.title}
-                                                className="w-full h-48 object-cover rounded-md mb-4"
-                                            />
-                                            <h3 className="text-xl font-semibold text-pink-700 mb-2">{shopItem.title}</h3>
-                                            <p className="text-gray-700 mb-2">Price -  ₹{shopItem.price}</p>
-                                            <div className="flex justify-between">
-                                                <button
-                                                    type="button"
-                                                    className={`w-48 cursor-pointer mx-1  py-2 rounded text-white font-semibold transition ${isSelected ? "bg-pink-700 hover:bg-pink-800" : "bg-pink-500 hover:bg-pink-600"
-                                                        }`}
-                                                >
-                                                    Add Card
-                                                </button>
-                                                <Link
-                                                    type="button"
-                                                    className={`text-center w-48 cursor-pointer mx-1  py-2 rounded bg-green-700 text-white font-semibold transition}`}
-                                                    to='buy-product'
-                                                    // onClick={()=>navigate('buy-product')}
-                                                    state={shopItem}
-                                                >
-                                                    Buy Now
-                                                </Link>
-                                            </div>
-                                        </motion.div>
-                                    );
-                                })
-                            )
-                        }
-                    </AnimatePresence>
+                <div className="row">
+                    <div className="col">
+                        <div className="mb-8 max-w-md mx-auto">
+                            <motion.input
+                                type="text"
+                                placeholder="Search gifts..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="w-full px-4 py-3 border border-pink-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 transition"
+                                whileFocus={{ scale: 1.03, boxShadow: "0 0 8px rgba(219, 39, 119, 0.7)" }}
+                            />
+                        </div>
+                    </div>
                 </div>
-                {/* shop box counting */}
-                {/* <AnimatePresence>
+                <div className="row">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                        <AnimatePresence>
+                            {
+                                filteredGifts.length === 0 ? (
+                                    <motion.p
+                                        className="text-center text-gray-500 col-span-full"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                    >
+                                        No Data Found or Any Gift
+                                    </motion.p>
+                                ) : (
+                                    filteredGifts.map((shopItem, shopIndex) => {
+                                        const isSelected = selectedGifts.includes(shopItem.id);
+                                        return (
+                                            <motion.div
+                                                key={shopIndex}
+                                                layout
+                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                exit={{ opacity: 0, scale: 0.8 }}
+                                                transition={{ duration: 0.3 }}
+                                                className={`border rounded-lg shadow-lg p-4 cursor-pointer transition transform hover:scale-105 ${isSelected ? "border-pink-600 bg-pink-50" : "border-gray-300 bg-white"
+                                                    }`}
+
+                                            >
+                                                <img
+                                                    src={shopItem.image_link}
+                                                    alt={shopItem.title}
+                                                    className="w-full h-48 object-cover rounded-md mb-4"
+                                                />
+                                                <h3 className="text-xl font-semibold text-pink-700 mb-2">{shopItem.title}</h3>
+                                                <p className="text-gray-700 mb-2">Price -  ₹{shopItem.price}</p>
+                                                <div className="flex justify-between">
+                                                    <button
+                                                        type="button"
+                                                        className={`w-48 cursor-pointer mx-1  py-2 rounded text-white font-semibold transition ${isSelected ? "bg-pink-700 hover:bg-pink-800" : "bg-pink-500 hover:bg-pink-600"
+                                                            }`}
+                                                    >
+                                                        Add Card
+                                                    </button>
+                                                    <Link
+                                                        type="button"
+                                                        className={`text-center w-48 cursor-pointer mx-1  py-2 rounded bg-green-700 text-white font-semibold transition}`}
+                                                        to='buy-product'
+                                                        // onClick={()=>navigate('buy-product')}
+                                                        state={shopItem}
+                                                    >
+                                                        Buy Now
+                                                    </Link>
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })
+                                )
+                            }
+                        </AnimatePresence>
+                    </div>
+                </div>
+                <div className="row">
+                    {/* <AnimatePresence>
                     {selectedGifts.length > 0 && (
                         <motion.div
                             layout
@@ -154,6 +158,7 @@ export default function Shop() {
                         </motion.div>
                     )}
                 </AnimatePresence> */}
+                </div>
             </div>
         </>
     );

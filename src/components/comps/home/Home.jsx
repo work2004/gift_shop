@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Gift, Headphones, MapPin, ShieldCheck, Smile, Truck } from "lucide-react";
 import Footer from "../../footer/Footer";
+import Slide from "./Slide";
 
 const popularGifts = [
     {
@@ -229,7 +230,7 @@ function Home() {
                     <div className="col">
                         <div className="px-6 md:px-20 py-12">
                             <h2 className="text-3xl font-bold text-center text-pink-700 mb-8">
-                                Best Selling Gifts
+                                <span className="border-b-3 pb-1 mb-1">Best Selling Gifts</span>
                             </h2>
                             <div className="grid gap-8 md:grid-cols-3">
                                 {products.map((product) => (
@@ -256,38 +257,18 @@ function Home() {
                         </div>
                     </div>
                 </div>
+
                 <div className="row">
-                    <div className="col">
-                        <div>
-                            <div className="max-w-6xl mx-auto px-4 py-10">
-                                <h2 className="text-3xl font-bold text-center mb-6 text-pink-700">
-                                    Popular Gifts
-                                </h2>
-                                <Slider {...settings}>
-                                    {popularGifts.map(({ id, name, image }) => (
-                                        <div key={id} className="px-3">
-                                            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                                                <img
-                                                    src={image}
-                                                    alt={name}
-                                                    className="w-full h-48 object-cover"
-                                                />
-                                                <div className="p-4 text-center">
-                                                    <h3 className="font-semibold text-lg">{name}</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </Slider>
-                            </div>
-                        </div>
-                    </div>
+                    <h2 className="text-3xl font-bold text-center mb-6 text-pink-700">
+                        <span className="border-b-3 pb-1 mb-1">Popular Gifts</span>
+                    </h2>
+                    <Slide />
                 </div>
                 <div className="row">
                     <div className="col">
                         <div className="bg-pink-50 py-16 px-6">
                             <h2 className="text-4xl font-bold text-center text-pink-700 mb-12">
-                                Why Choose Us?
+                                <span className="border-b-3 pb-1 mb-1">Your Celebration, Our Creation</span>
                             </h2>
                             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
                                 {benefits.map(({ icon, title, description }, index) => (
@@ -368,7 +349,7 @@ function Home() {
                 <div className="row">
                     <div className="col max-w-4xl mx-auto py-16 px-6">
                         <h2 className="text-3xl font-bold text-center text-pink-700 mb-8">
-                            What Our Customers Feedback
+                            <span className="border-b-3 pb-1 mb-1">What Our Customers Feedback</span>
                         </h2>
                         <Slider {...test_card}>
                             {testimonials.map(({ id, name, text, avatar }) => (
@@ -393,7 +374,8 @@ function Home() {
                     <div className="col bg-pink-50 py-16 px-6">
                         <div className="max-w-xl mx-auto text-center">
                             <h2 className="text-4xl font-bold text-pink-700 mb-6">
-                                Stay Updated!
+                                <span className="border-b-3 pb-1 mb-1">Stay Updated!</span>
+                                
                             </h2>
                             <p className="mb-8 text-gray-700">
                                 Subscribe to our newsletter for the latest gifts, offers & updates.
@@ -435,7 +417,7 @@ function Home() {
                     </div>
                 </div>
                 <div className="row">
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         </>

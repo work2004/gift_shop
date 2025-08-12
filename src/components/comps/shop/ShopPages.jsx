@@ -189,7 +189,7 @@ function ShopPage({ product }) {
                                                         <Link
                                                             type="button"
                                                             className={`text-center w-48 cursor-pointer mx-1  py-2 rounded bg-green-700 text-white font-semibold transition}`}
-                                                            to='/shop/buy-products'
+                                                            to='/shop/buy-product'
                                                             // onClick={()=>navigate('buy-product')}
                                                             state={shopItem}
                                                         >
@@ -242,7 +242,7 @@ function ShopPage({ product }) {
                                                     <Link
                                                         type="button"
                                                         className={`text-center w-48 cursor-pointer mx-1  py-2 rounded bg-green-700 text-white font-semibold transition}`}
-                                                        to='/shop/buy-products'
+                                                        to='/shop/buy-product'
                                                         // onClick={()=>navigate('buy-product')}
                                                         state={shopItem}
                                                     >
