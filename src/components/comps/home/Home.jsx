@@ -159,7 +159,7 @@ function Home() {
     };
     return (
         <>
-            <div className="container-fluid bg-pink-50">
+            <div className="container-fluid bg-pink-50 w-full">
                 <div className="row">
                     <div className="col-12">
                         <div
@@ -172,7 +172,7 @@ function Home() {
                             <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 opacity-70 animate-gradient-x"></div>
 
                             <motion.div
-                                className="relative max-w-3xl text-center text-white z-10"
+                                className="relative p-1.5 text-lxl md:text-4xl max-w-3xl text-center text-white z-10"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1 }}
@@ -392,7 +392,7 @@ function Home() {
                             ) : (
                                 <form
                                     onSubmit={handleSubmit}
-                                    className="flex max-w-md mx-auto gap-4"
+                                    className=" max-w-md mx-auto gap-4"
                                 >
                                     <motion.input
                                         type="email"
@@ -407,7 +407,7 @@ function Home() {
                                         type="submit"
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-pink-700 transition"
+                                        className="m-3 bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-pink-700 transition"
                                     >
                                         Subscribe
                                     </motion.button>

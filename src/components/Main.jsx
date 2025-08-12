@@ -12,7 +12,7 @@ function Main(){
     return(
         <>
             <Navbar/>
-            {/* <h1>hello</h1> */}
+            {/* <h1>Main page contect </h1> */}
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 {/* <Route path="/" element={<Test/>}/> */}
