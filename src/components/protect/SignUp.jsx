@@ -126,11 +126,10 @@ function SignUp() {
                             list="states"
                         />
                         <datalist id="states">
-                            <option value="New York" />
-                            <option value="Los Angeles" />
-                            <option value="Chicago" />
-                            <option value="Houston" />
-                            <option value="Mumbai" />
+                            <option value="Bihar" />
+                            <option value="Delhi" />
+                            <option value="Delhi" />
+                            
                         </datalist>
                     </div>
 
