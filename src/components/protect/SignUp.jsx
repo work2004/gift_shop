@@ -25,7 +25,7 @@ function SignUp() {
             {
                 name,
                 email,
-                pass, 
+                pass,
                 phone,
                 address,
                 state,
@@ -38,10 +38,44 @@ function SignUp() {
             console.log(error);
             alert("Error creating account. Try again!");
         } else {
-            login("my-secret-token"); 
-            navigate("/"); 
+            login("my-secret-token");
+            navigate("/");
         }
     };
+    const stateIndian = [
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "West Bengal",
+        "Delhi",
+        "Jammu & Kashmir",
+        "Ladakh",
+        "Puducherry",
+    ];
 
     return (
         <div >
@@ -126,9 +160,13 @@ function SignUp() {
                             list="states"
                         />
                         <datalist id="states">
-                            <option value="Bihar" />
-                            <option value="Delhi" />
-                            <option value="Delhi" />
+                            {
+                                stateIndian.map((state)=>{
+                                    return(
+                                        <option value={state} />
+                                    )
+                                })
+                            }
                             
                         </datalist>
                     </div>
