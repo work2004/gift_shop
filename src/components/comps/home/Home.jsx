@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { Gift, Headphones, MapPin, ShieldCheck, Smile, Truck } from "lucide-react";
 import Slide from "./Slide";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../footer/Footer";
 
 const popularGifts = [
     {
@@ -118,7 +119,16 @@ const testimonials = [
     },
 ];
 
+
+
 function Home() {
+    useEffect(() => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+}, []);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -189,7 +199,7 @@ function Home() {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="mt-10 bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 rounded-full font-semibold shadow-lg transition duration-300"
-                                    onClick={()=>navigate('shop')}
+                                    onClick={() => navigate('shop')}
                                 >
                                     Shop Now
                                 </motion.button>
@@ -213,7 +223,7 @@ function Home() {
                                     Explore our collection of thoughtful gifts to make every moment
                                     special.
                                 </p>
-                                <button onClick={()=>navigate('shop')} className="mt-6 bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition duration-300">
+                                <button onClick={() => navigate('shop')} className="mt-6 bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-700 transition duration-300">
                                     Shop Now
                                 </button>
                             </motion.div>
@@ -377,7 +387,7 @@ function Home() {
                         <div className="max-w-xl mx-auto text-center">
                             <h2 className="text-4xl font-bold text-pink-700 mb-6">
                                 <span className="border-b-3 pb-1 mb-1">Stay Updated!</span>
-                                
+
                             </h2>
                             <p className="mb-8 text-gray-700">
                                 Subscribe to our newsletter for the latest gifts, offers & updates.
@@ -419,6 +429,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
 
     );

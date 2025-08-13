@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Footer from "../../footer/Footer";
 
 const blogData = [
     {
@@ -58,7 +59,16 @@ const posterContent = {
         "https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1200&q=81https://www.vecteezy.com/vector-art/34962800-horizontal-promotion-banner-with-3d-big-beautiful-present-box-web-page-for-gift-shop-store",
 };
 
+
+
 function Blog() {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }, []);
     return (
         <>
             <div className="container my-10 min-h-screen bg-gray-50 px-6 md:px-20 py-12">
@@ -136,6 +146,7 @@ function Blog() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

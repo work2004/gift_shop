@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "../../DataBaseFecth.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Footer from "../../footer/Footer.jsx";
 
 // const giftProducts = [
 //     { id: 1, title: "Chocolate Box", price: 500, img_link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXJOsr6pcMBR0b83CJbHYo4tM5Qtpd-nzu7EfxLse5gJEP4lz1lIjorTwrDI6AaN0mtmc&usqp=CAU" },
@@ -23,8 +24,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Shop() {
 
-    const navigate = useNavigate();
-    const location = useLocation();
+    // const navigate = useNavigate();
+    // const location = useLocation();
 
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedGifts, setSelectedGifts] = useState([]);
@@ -56,9 +57,10 @@ export default function Shop() {
     return (
         <>
             <div className="container max-w-7xl mx-auto p-6 my-10 md:my-13">
-                <div className="row">
-                    <h2 className="text-3xl font-bold text-pink-700 mb-6 text-center">
-                        <span className="border-b-3 pb-1 mb-1">Purchase Your Favorite Gifts</span>
+                <div className="row pt-6 md:pt-3">
+                    {/* <span className="border-b-3 pb-1 mb-1">Purchase Your Favorite Gifts</span> */}
+                    <h2 className="text-3xl font-bold text-center text-rose-500 mb-5 animate-bounce">
+                        Purchase Your Favorite Gifts
                     </h2>
                 </div>
                 <div className="row">
@@ -169,6 +171,7 @@ export default function Shop() {
                 </AnimatePresence> */}
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

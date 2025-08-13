@@ -1,7 +1,8 @@
 // Navbar.jsx
 import React, { useState } from "react";
 import { Menu, X, Bell } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { logout } from "../protect/auth";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,15 +14,20 @@ function Navbar() {
         { path: 'Gallary', link: 'gallary' },
     ]
     const navigate = useNavigate();
+    const handleLogout = () => {
+        logout();
+        navigate("/login");
+    };
+
     return (
         <>
             <div className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20 shadow-sm">
                 <div className="">
                     <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
 
-                        <a onClick={()=>navigate('/')} className="cursor-pointer text-2xl font-bold text-rose-500">
+                        <Link to="/" className="cursor-pointer text-2xl font-bold text-rose-500">
                             GiftShop
-                        </a>
+                        </Link>
                         <ul className="hidden md:flex space-x-8">
                             {
                                 linkData.map((linkItem, linkIndex) => (
@@ -35,7 +41,39 @@ function Navbar() {
                                     </li>
                                 ))}
                         </ul>
+
                         <div className="flex items-center space-x-4">
+                            <button onClick={handleLogout} className="hidden sm:hidden md:block lg:block p-2 px-4 bg-rose-500 text-white rounded hover:bg-rose-600">
+                                Logout
+                            </button>
+                            {/* <button className="px-4 py-2 bg-red-500 rounded hover:bg-red-600" >
+                                Login
+                            </button> */}
+                            <button className="relative p-2 hover:bg-rose-50 rounded-full">
+                                <Bell size={22} className="text-gray-700" />
+                                {notifications > 0 && (
+                                    <span className="absolute top-1 right-1 bg-rose-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+                                        {notifications}
+                                    </span>
+                                )}
+                            </button>
+                            <div className="w-10 h-10 rounded-full overflow-hidden cursor-pointer border-2 border-rose-500">
+                                <img
+                                    src='https://i.pravatar.cc/150?img=32'
+                                    alt="User"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <button
+                                className="md:hidden p-2 text-gray-700"
+                                onClick={() => setIsOpen(!isOpen)}
+                            >
+                                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                            </button>
+
+                        </div>
+
+                        {/* <div className="flex items-center space-x-4">
                             <button className="relative p-2 hover:bg-rose-50 rounded-full">
                                 <Bell size={22} className="text-gray-700" />
                                 {notifications > 0 && (
@@ -50,7 +88,7 @@ function Navbar() {
                             >
                                 {isOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     {isOpen && (
                         <ul className="md:hidden bg-white border-t border-gray-100 shadow-lg">
@@ -66,8 +104,12 @@ function Navbar() {
                                         </NavLink>
                                     </li>
                                 ))}
+                            <button onClick={handleLogout} className=" m-3 p-2 px-4 bg-rose-500 text-white rounded hover:bg-rose-600">
+                                Logout
+                            </button>
                         </ul>
                     )}
+
                 </div>
             </div>
         </>

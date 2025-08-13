@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { supabase } from "../../DataBaseFecth";
 import { motion, AnimatePresence } from "framer-motion";
+import Footer from "../../footer/Footer";
 
 function ShopPage({ product }) {
     const { state } = useLocation();
@@ -261,6 +262,7 @@ function ShopPage({ product }) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };
